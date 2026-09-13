@@ -102,3 +102,8 @@ desktop.ini
 *.log
 *.tmp
 *.temp
+
+# Dataset
+data/raw/
+data/processed/
+data/samples/
