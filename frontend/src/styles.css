@@ -1,0 +1,1050 @@
+/* ============================================================
+   GLOBAL
+   ============================================================ */
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+    margin: 0;
+    min-height: 100%;
+}
+
+body {
+    font-family:
+        Inter,
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+
+    background: #080b12;
+    color: #f5f7fb;
+}
+
+button,
+input,
+select,
+textarea {
+    font: inherit;
+}
+
+button {
+    border: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+
+/* ============================================================
+   APP LAYOUT
+   ============================================================ */
+
+.app-shell {
+    min-height: 100vh;
+
+    display: flex;
+
+    background:
+        radial-gradient(circle at top right,
+            rgba(59, 130, 246, 0.08),
+            transparent 30%),
+        #080b12;
+}
+
+
+/* ============================================================
+   SIDEBAR
+   ============================================================ */
+
+.sidebar {
+    width: 250px;
+    min-height: 100vh;
+
+    padding: 28px 18px;
+
+    background: #0c1018;
+
+    border-right: 1px solid #1d2430;
+
+    position: sticky;
+    top: 0;
+
+    flex-shrink: 0;
+}
+
+.brand-title {
+    font-size: 22px;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+}
+
+.system-status {
+    margin-top: 8px;
+
+    color: #7ee2a8;
+
+    font-size: 13px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 8px;
+}
+
+.status-dot {
+    width: 8px;
+    height: 8px;
+
+    border-radius: 50%;
+
+    background: #37d67a;
+
+    display: inline-block;
+}
+
+.sidebar-nav {
+    margin-top: 36px;
+}
+
+.nav-item {
+    display: block;
+
+    padding: 11px 14px;
+    margin-bottom: 5px;
+
+    border-radius: 8px;
+
+    color: #9ca6b6;
+
+    cursor: pointer;
+
+    transition:
+        background 0.15s ease,
+        color 0.15s ease;
+}
+
+.nav-item:hover {
+    background: #131b29;
+    color: #ffffff;
+}
+
+.nav-item.active {
+    background: #182235;
+    color: #ffffff;
+    font-weight: 600;
+}
+
+
+/* ============================================================
+   MAIN CONTENT
+   ============================================================ */
+
+.main-content {
+    flex: 1;
+
+    width: 100%;
+    max-width: 1600px;
+
+    margin: 0 auto;
+
+    padding: 32px;
+}
+
+.page-header {
+    margin-bottom: 24px;
+}
+
+.page-header h1 {
+    margin: 0;
+
+    font-size: 30px;
+    line-height: 1.2;
+}
+
+.page-header p {
+    margin: 8px 0 0;
+
+    color: #8994a7;
+
+    line-height: 1.6;
+}
+
+
+/* ============================================================
+   COMMON CARDS
+   ============================================================ */
+
+.upload-card,
+.status-card,
+.panel,
+.stat-card {
+    background: #101621;
+
+    border: 1px solid #1e2634;
+
+    border-radius: 14px;
+}
+
+
+/* ============================================================
+   UPLOAD
+   ============================================================ */
+
+.upload-card {
+    padding: 22px;
+
+    margin-bottom: 18px;
+}
+
+.upload-title {
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.upload-description {
+    color: #8f99aa;
+
+    margin: 7px 0 18px;
+
+    line-height: 1.5;
+}
+
+.upload-row {
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+}
+
+.file-input {
+    flex: 1;
+
+    min-height: 46px;
+
+    display: flex;
+    align-items: center;
+
+    border: 1px dashed #344055;
+
+    border-radius: 10px;
+
+    padding: 0 14px;
+
+    color: #b9c2d0;
+
+    background: #0b1018;
+
+    cursor: pointer;
+
+    transition:
+        border-color 0.15s ease,
+        background 0.15s ease;
+}
+
+.file-input:hover {
+    border-color: #4b6285;
+    background: #0e141e;
+}
+
+.file-input input {
+    display: none;
+}
+
+
+/* ============================================================
+   BUTTONS
+   ============================================================ */
+
+.analyze-button,
+.secondary-button,
+.danger-button {
+    border-radius: 10px;
+
+    padding: 11px 16px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        background 0.15s ease,
+        color 0.15s ease,
+        border-color 0.15s ease,
+        opacity 0.15s ease;
+}
+
+.analyze-button {
+    min-width: 150px;
+
+    border: 0;
+
+    background: #3b82f6;
+
+    color: #ffffff;
+}
+
+.analyze-button:hover:not(:disabled) {
+    background: #2563eb;
+}
+
+.analyze-button:disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+}
+
+.secondary-button {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background: #192337;
+
+    color: #ffffff;
+
+    border: 1px solid #334155;
+}
+
+.secondary-button:hover:not(:disabled) {
+    background: #22304a;
+
+    border-color: #475569;
+}
+
+.secondary-button:disabled {
+    opacity: 0.45;
+
+    cursor: not-allowed;
+}
+
+.danger-button {
+    background: #351116;
+
+    color: #ff8f8f;
+
+    border: 1px solid #7f1d1d;
+}
+
+.danger-button:hover:not(:disabled) {
+    background: #47151a;
+
+    color: #ffffff;
+}
+
+.danger-button:disabled {
+    opacity: 0.5;
+
+    cursor: not-allowed;
+}
+
+
+/* ============================================================
+   MESSAGES
+   ============================================================ */
+
+.info-message,
+.error-message {
+    margin-top: 14px;
+
+    padding: 11px 14px;
+
+    border-radius: 8px;
+
+    font-size: 14px;
+
+    line-height: 1.5;
+}
+
+.info-message {
+    background: #10233d;
+
+    color: #a9c9ff;
+}
+
+.error-message {
+    background: #3a171b;
+
+    color: #ffb4b8;
+}
+
+
+/* ============================================================
+   VIDEO STATUS
+   ============================================================ */
+
+.status-card {
+    padding: 16px 20px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 16px;
+
+    margin-bottom: 18px;
+}
+
+.status-actions {
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+}
+
+.status-badge {
+    padding: 7px 11px;
+
+    border-radius: 999px;
+
+    font-size: 12px;
+
+    text-transform: uppercase;
+
+    font-weight: 700;
+
+    white-space: nowrap;
+}
+
+.status-badge.uploaded {
+    background: #33280f;
+
+    color: #f3c969;
+}
+
+.status-badge.processing {
+    background: #142b48;
+
+    color: #7cb7ff;
+}
+
+.status-badge.completed {
+    background: #123221;
+
+    color: #78dda2;
+}
+
+.status-badge.failed {
+    background: #3a171b;
+
+    color: #ff9ea5;
+}
+
+
+/* ============================================================
+   STATISTICS
+   ============================================================ */
+
+.stats-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(5, minmax(0, 1fr));
+
+    gap: 14px;
+
+    margin-bottom: 18px;
+}
+
+.stat-card {
+    padding: 18px;
+}
+
+.stat-label {
+    color: #8d98aa;
+
+    font-size: 13px;
+}
+
+.stat-value {
+    margin-top: 6px;
+
+    font-size: 30px;
+
+    font-weight: 800;
+}
+
+
+/* ============================================================
+   CONTENT GRID
+   ============================================================ */
+
+.content-grid {
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 2fr) minmax(300px, 1fr);
+
+    gap: 18px;
+
+    margin-bottom: 18px;
+}
+
+.panel {
+    padding: 20px;
+
+    margin-bottom: 18px;
+}
+
+.panel:last-child {
+    margin-bottom: 0;
+}
+
+.panel-header {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 16px;
+
+    margin-bottom: 18px;
+}
+
+.panel-header h2 {
+    margin: 0;
+
+    font-size: 18px;
+}
+
+.panel-header span {
+    color: #7f8a9c;
+
+    font-size: 12px;
+}
+
+
+/* ============================================================
+   DETECTED OBJECTS
+   ============================================================ */
+
+.object-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap: 12px;
+}
+
+.object-card {
+    background: #0b1018;
+
+    border: 1px solid #1e2735;
+
+    border-radius: 10px;
+
+    padding: 14px;
+}
+
+.object-name {
+    color: #a7b1c1;
+
+    font-size: 13px;
+}
+
+.object-value {
+    margin-top: 6px;
+
+    font-size: 24px;
+
+    font-weight: 800;
+}
+
+
+/* ============================================================
+   INFORMATION ROWS
+   ============================================================ */
+
+.info-row {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 12px;
+
+    padding: 12px 0;
+
+    border-bottom: 1px solid #1c2430;
+
+    color: #9ba5b5;
+}
+
+.info-row:last-child {
+    border-bottom: 0;
+}
+
+.info-row strong {
+    color: #ffffff;
+
+    text-align: right;
+}
+
+
+/* ============================================================
+   VIDEO
+   ============================================================ */
+
+.video-panel {
+    margin-bottom: 18px;
+}
+
+.analysis-video {
+    width: 100%;
+
+    max-height: 650px;
+
+    display: block;
+
+    border-radius: 12px;
+
+    background: #000000;
+
+    border: 1px solid #202937;
+
+    object-fit: contain;
+}
+
+
+/* ============================================================
+   RESTRICTED ZONE
+   ============================================================ */
+
+.zone-video-wrapper {
+    width: 100%;
+}
+
+.zone-video-stage {
+    position: relative;
+
+    width: 100%;
+
+    overflow: hidden;
+
+    border-radius: 14px;
+
+    background: #000000;
+
+    line-height: 0;
+}
+
+.zone-video {
+    width: 100%;
+
+    height: auto;
+
+    max-height: 70vh;
+
+    display: block;
+
+    background: #000000;
+
+    object-fit: contain;
+}
+
+/*
+   The canvas is exactly on top of the displayed video.
+   It only receives clicks while the user is drawing.
+*/
+
+.zone-canvas {
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    pointer-events: none;
+}
+
+.zone-canvas.active {
+    pointer-events: auto;
+
+    cursor: crosshair;
+}
+
+.zone-controls {
+    margin-top: 18px;
+}
+
+.zone-checkbox {
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    font-weight: 700;
+
+    color: #ffffff;
+
+    cursor: pointer;
+}
+
+.zone-checkbox input {
+    width: 17px;
+    height: 17px;
+
+    cursor: pointer;
+
+    accent-color: #ef4444;
+}
+
+.zone-help {
+    margin-top: 10px;
+
+    margin-bottom: 8px;
+
+    color: #8fa4c6;
+
+    line-height: 1.6;
+
+    font-size: 13px;
+}
+
+.zone-count {
+    margin: 8px 0;
+
+    color: #ffffff;
+
+    font-weight: 700;
+}
+
+.zone-buttons {
+    display: flex;
+
+    gap: 12px;
+
+    flex-wrap: wrap;
+
+    margin-top: 12px;
+}
+
+.zone-success {
+    margin-top: 12px;
+
+    padding: 12px 14px;
+
+    border-radius: 10px;
+
+    border: 1px solid #14532d;
+
+    background: #0d2b1a;
+
+    color: #74e8a2;
+
+    line-height: 1.5;
+}
+
+
+/* ============================================================
+   EVENT LIST
+   ============================================================ */
+
+.event-list {
+    display: flex;
+
+    flex-direction: column;
+}
+
+.event-row {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 16px;
+
+    padding: 13px 0;
+
+    border-bottom: 1px solid #1c2430;
+}
+
+.event-row:last-child {
+    border-bottom: 0;
+}
+
+.muted {
+    margin-top: 4px;
+
+    color: #707b8c;
+
+    font-size: 12px;
+}
+
+.severity {
+    padding: 6px 9px;
+
+    border-radius: 999px;
+
+    text-transform: uppercase;
+
+    font-size: 10px;
+
+    font-weight: 800;
+
+    white-space: nowrap;
+}
+
+.severity.critical {
+    background: #3b151a;
+
+    color: #ff929a;
+}
+
+.severity.warning {
+    background: #3c2d10;
+
+    color: #f0c66c;
+}
+
+.severity.normal {
+    background: #153321;
+
+    color: #75dc9a;
+}
+
+.empty {
+    color: #717d8e;
+
+    padding: 20px 0;
+
+    line-height: 1.5;
+}
+
+.zone-image-stage {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    border-radius: 14px;
+    background: #000000;
+    line-height: 0;
+}
+
+.zone-preview-image {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: 70vh;
+    object-fit: contain;
+}
+
+.zone-image-stage .zone-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.zone-image-stage .zone-canvas.active {
+    pointer-events: auto;
+    cursor: crosshair;
+}
+
+/* ============================================================
+   PLACEHOLDER PAGES
+   ============================================================ */
+
+.page-placeholder {
+    background: #101621;
+
+    border: 1px solid #1e2634;
+
+    border-radius: 14px;
+
+    padding: 28px;
+}
+
+.page-placeholder h1 {
+    margin-top: 0;
+}
+
+.page-placeholder p {
+    color: #8f99aa;
+}
+
+.list-card {
+    background: #0b1018;
+
+    border: 1px solid #1e2735;
+
+    border-radius: 10px;
+
+    padding: 15px;
+
+    margin-top: 10px;
+}
+
+
+/* ============================================================
+   GENERAL BUTTON GROUP
+   ============================================================ */
+
+.button-group {
+    display: flex;
+
+    gap: 8px;
+
+    flex-wrap: wrap;
+}
+
+
+/* ============================================================
+   RESPONSIVE — TABLET
+   ============================================================ */
+
+@media (max-width: 1200px) {
+    .stats-grid {
+        grid-template-columns:
+            repeat(3, minmax(0, 1fr));
+    }
+}
+
+
+/* ============================================================
+   RESPONSIVE — SMALL LAPTOP
+   ============================================================ */
+
+@media (max-width: 1100px) {
+    .sidebar {
+        width: 210px;
+    }
+
+    .content-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .object-grid {
+        grid-template-columns:
+            repeat(3, minmax(0, 1fr));
+    }
+}
+
+
+/* ============================================================
+   RESPONSIVE — MOBILE
+   ============================================================ */
+
+@media (max-width: 760px) {
+    .app-shell {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+
+        min-height: auto;
+
+        position: static;
+
+        border-right: 0;
+
+        border-bottom: 1px solid #1d2430;
+    }
+
+    .sidebar-nav {
+        display: grid;
+
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+
+        gap: 5px;
+
+        margin-top: 20px;
+    }
+
+    .main-content {
+        padding: 18px;
+    }
+
+    .upload-row {
+        flex-direction: column;
+
+        align-items: stretch;
+    }
+
+    .analyze-button {
+        width: 100%;
+    }
+
+    .stats-grid {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+
+    .object-grid {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+
+    .status-card {
+        flex-direction: column;
+
+        align-items: flex-start;
+    }
+
+    .status-actions {
+        width: 100%;
+
+        justify-content: space-between;
+
+        flex-wrap: wrap;
+    }
+
+    .button-group {
+        width: 100%;
+    }
+
+    .secondary-button {
+        flex: 1;
+    }
+
+    .event-row {
+        align-items: flex-start;
+
+        flex-direction: column;
+    }
+}
+
+
+/* ============================================================
+   RESPONSIVE — VERY SMALL MOBILE
+   ============================================================ */
+
+@media (max-width: 480px) {
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .object-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .main-content {
+        padding: 14px;
+    }
+
+    .page-header h1 {
+        font-size: 25px;
+    }
+
+    .panel,
+    .upload-card {
+        padding: 16px;
+    }
+}

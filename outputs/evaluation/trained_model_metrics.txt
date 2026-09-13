@@ -1,0 +1,7 @@
+Model: E:\Video_surveillance\SentinelAI\ml\models\sentinel_visdrone_best.pt
+Data: E:\Video_surveillance\SentinelAI\data\processed\visdrone_yolo\dataset.yaml
+Precision: 0.3395
+Recall:    0.3497
+mAP50:     0.2788
+mAP50-95:  0.1373
+Speed (ms/img): {'preprocess': 0.5273434027609861, 'inference': 16.38175138887416, 'loss': 0.00020902775885487141, 'postprocess': 5.785700347208452}

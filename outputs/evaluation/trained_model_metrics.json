@@ -1,0 +1,16 @@
+{
+  "model": "E:\\Video_surveillance\\SentinelAI\\ml\\models\\sentinel_visdrone_best.pt",
+  "data": "E:\\Video_surveillance\\SentinelAI\\data\\processed\\visdrone_yolo\\dataset.yaml",
+  "dataset_num_classes": 10,
+  "model_num_classes": 10,
+  "precision": 0.3394965926205157,
+  "recall": 0.3497356813414159,
+  "mAP50": 0.278757979917872,
+  "mAP50_95": 0.1373166031929504,
+  "speed_ms_per_image": {
+    "preprocess": 0.5273434027609861,
+    "inference": 16.38175138887416,
+    "loss": 0.00020902775885487141,
+    "postprocess": 5.785700347208452
+  }
+}
